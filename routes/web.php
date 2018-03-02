@@ -23,10 +23,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/create', 'QuestionsController@create');
 Route::get('/middle/{id}', 'QuestionsController@show'); // the id comes from the nr of options desired
 
-
-Route::get('/middle', 'QuestionsController@show');
-
 Route::post('/store', 'QuestionsController@store');
+
+Route::post('/store_option', 'OptionsController@store');
+
+// Route::post('/final', 'OptionsController@show');
+Route::get('/final/{id}', 'OptionsController@show');
 
 // Route::post('/', 'OptionsController@store');
 

@@ -9,7 +9,7 @@ class OptionsController extends Controller
 
     public function create()
     {
-        return view('options'); //this comes form resources/view/create Todo: create submit form fields - David
+        return view('middle'); //this comes form resources/view/create Todo: create submit form fields - David
     }
 
 
@@ -17,11 +17,13 @@ class OptionsController extends Controller
     {
         $newOption = new \App\Option(); // create a new instance of the option
 
-        $newOption-> option_text = $request->get('option'); //text1 will come from David HTML create form todo: update the 'option' name - from David
+        $newOption->option_text = $request->get('option'); //text1 will come from David HTML create form todo: update the 'option' name - from David
+
+        $newOption->question_id = $request->get('question_id');
 
         $newOption->save();
 
-        return redirect(action('questionsController@show', [$newOption->id]));
+        return redirect(action('QuestionsController@show', [$newOption->question_id]));
 
     }
 
@@ -29,8 +31,8 @@ class OptionsController extends Controller
     {
 
         //return 'list of all questions'
-        $options = \App\Option::where("id" , $id)->first();  //
-        return view('exhibit', ['options' => $options]);
+        $option = \App\Option::where("id" , $id)->first();  //
+        return view('final', ['option' => $option]);
         //Todo: update the folder for the 'exhibit' above.
         //
     }

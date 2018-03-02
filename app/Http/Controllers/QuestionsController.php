@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-// use \app\Question;
+use Illuminate\Support\Facades\Auth;
+
 class QuestionsController extends Controller
 {
 
@@ -18,7 +19,8 @@ class QuestionsController extends Controller
     {
         $newQuestion = new \App\Question(); // create a new instance of the question
 
-        $newQuestion-> question_text = $request->get('question'); //text1 will come from David HTML create form todo: update the 'text1' from David
+        $newQuestion->question_text = $request->get('question'); //text1 will come from David HTML create form todo: update the 'text1' from David
+        $newQuestion->user_id = Auth::user()->id;
 
         $newQuestion->save();
 
@@ -30,8 +32,8 @@ class QuestionsController extends Controller
     {
 
         //return 'list of all questions'
-        $questions = \App\Question::where("id" , $id)->first();  //
-        return view('middle', ['questions' => $questions]);
+        $question = \App\Question::where("id" , $id)->first();  //
+        return view('middle', ['question' => $question]);
         //Todo: update the folder for the 'exhibit' above.
         //
     }
