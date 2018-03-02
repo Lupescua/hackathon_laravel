@@ -3,13 +3,19 @@
 
 <div class="container">
 
-        <h2 class="form-signin-heading">Please answer the following questions</h2>
+        <h2 class="form-signin-heading">{{$question->question_text}}</h2>
 
         <!-- <h3></h3>//will insert question text from database -->
 
-        
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-        </form>
+        @foreach($question->options as $option)
+
+        <input name="single" type="radio" value="{{$option->id}}" name="tick">
+        {{$option->option_text}}</br>
+
+        @endforeach
+
+ <a class="btn btn-lg btn-primary btn-block" href="{{ action('AnswerController@store') }}">Submit</a>
+
 </div>
 
 @endsection

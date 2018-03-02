@@ -8,4 +8,7 @@ class Question extends Model
 {
     //
     protected $table = "questions";
+    public function options() {
+        return $this->hasMany('App\Option');
+    }
 }

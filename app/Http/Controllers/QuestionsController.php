@@ -30,7 +30,7 @@ class QuestionsController extends Controller
 
     public function show($id)
     {
-
+        
         //return 'list of all questions'
         $question = \App\Question::where("id" , $id)->first();  //
         return view('middle', ['question' => $question]);
