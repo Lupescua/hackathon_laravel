@@ -18,11 +18,11 @@ class QuestionsController extends Controller
     {
         $newQuestion = new \App\Question(); // create a new instance of the question
 
-        $newQuestion-> question_text = $request->get('text1'); //text1 will come from David HTML create form todo: update the 'text1' from David
+        $newQuestion-> question_text = $request->get('question'); //text1 will come from David HTML create form todo: update the 'text1' from David
 
         $newQuestion->save();
 
-        return redirect(action('questionsController@show', [$newQuestion->id]));
+        return redirect(action('QuestionsController@show', [$newQuestion->id]));
 
     }
 
@@ -31,7 +31,7 @@ class QuestionsController extends Controller
 
         //return 'list of all questions'
         $questions = \App\Question::where("id" , $id)->first();  //
-        return view('exhibit', ['questions' => $questions]);
+        return view('middle', ['questions' => $questions]);
         //Todo: update the folder for the 'exhibit' above.
         //
     }
