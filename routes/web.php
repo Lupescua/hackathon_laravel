@@ -21,7 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::get('/create', 'QuestionsController@create');
-// Route::get('/question/{id}', 'QuestionsController@show'); // the id comes from the nr of options desired
+// Route::get('/question/{id}', 'QuestionsController@show')->name('question_name'); // the id comes from the nr of options desired
 
 
 // Route::post('/exibit', 'QuestionsController@show');
