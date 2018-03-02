@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
 
-I exhibit the  poll
+I display the final questionnaire to be answered
 
 @endsection
