@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+// use \app\Question;
 class QuestionsController extends Controller
 {
 
@@ -16,7 +16,7 @@ class QuestionsController extends Controller
 
     public function store(Request $request)
     {
-        $newQuestion = new Question(); // create a new instance of the question
+        $newQuestion = new \App\Question(); // create a new instance of the question
 
         $newQuestion-> question_text = $request->get('text1'); //text1 will come from David HTML create form todo: update the 'text1' from David
 
@@ -30,7 +30,7 @@ class QuestionsController extends Controller
     {
 
         //return 'list of all questions'
-        $questions = Question::where("id" , $id)->first();  //
+        $questions = \App\Question::where("id" , $id)->first();  //
         return view('exhibit', ['questions' => $questions]);
         //Todo: update the folder for the 'exhibit' above.
         //

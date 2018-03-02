@@ -5,7 +5,7 @@
 
         <h2 class="form-signin-heading">Please create your Question</h2>
 
-        <form method="post" action=" {{ action('CategoryController@store') }} ">
+        <form method="post" action=" {{ action('QuestionsController@store') }} ">
             {!! csrf_field() !!}
             <label class="sr-only">Question</label>
             <input class="form-control" name="question" placeholder="Quesion" required autofocus><br>

@@ -18,3 +18,16 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('/create', 'QuestionsController@create');
+// Route::get('/question/{id}', 'QuestionsController@show'); // the id comes from the nr of options desired
+
+
+// Route::post('/exibit', 'QuestionsController@show');
+
+Route::post('/store', 'QuestionsController@store');
+
+// Route::post('/', 'OptionsController@store');
+
+// Route::get('/', 'AnswersController@index'); //todo
