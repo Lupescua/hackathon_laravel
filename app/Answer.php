@@ -8,4 +8,8 @@ class Answer extends Model
 {
     //
     protected $table = "answers";
+
+    public function question(){
+        $this->belongsTo('App\Option');
+    }
 }

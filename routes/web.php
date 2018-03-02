@@ -27,9 +27,12 @@ Route::post('/store', 'QuestionsController@store');
 
 Route::post('/store_option', 'OptionsController@store');
 
-// Route::post('/final', 'OptionsController@show');
 Route::get('/final/{id}', 'OptionsController@show');
 
 // Route::post('/', 'OptionsController@store');
 
-// Route::get('/', 'AnswersController@index'); //todo
+Route::get('/answers', 'AnswerController@show'); //todo
+
+Route::get('/final', 'AnswerController@store');//get
+
+Route::post('/vote', 'AnswerController@vote');

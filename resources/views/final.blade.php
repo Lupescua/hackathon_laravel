@@ -1,20 +1,23 @@
-@extends('layouts.app')
-@section('content')
+@extends('layouts.app') @section('content')
 
 <div class="container">
 
-        <h2 class="form-signin-heading">{{$question->question_text}}</h2>
+    <h2 class="form-signin-heading">{{$question->question_text}}</h2>
 
-        <!-- <h3></h3>//will insert question text from database -->
+    <!-- <h3></h3>//will insert question text from database -->
+    <form method="post" action="{{ action('AnswerController@vote') }}">
+    {!! csrf_field() !!}
 
         @foreach($question->options as $option)
 
-        <input name="single" type="radio" value="{{$option->id}}" name="tick">
-        {{$option->option_text}}</br>
+        <input type="radio" value="{{$option->id}}" name="option_id">
+        {{$option->option_text}}
+        </br>
 
         @endforeach
 
- <a class="btn btn-lg btn-primary btn-block" href="{{ action('AnswerController@store') }}">Submit</a>
+        <button type="submit" class="btn btn-lg btn-primary btn-block">Submit</button>
+    </form>
 
 </div>
 

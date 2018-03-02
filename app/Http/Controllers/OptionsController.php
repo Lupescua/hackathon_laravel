@@ -27,12 +27,14 @@ class OptionsController extends Controller
 
     }
 
+
+
     public function show($id)
     {
 
         //return 'list of all questions'
         $question = \App\Question::where("id" , $id)->first();
-
+            
         return view('final', ['question' => $question]);
         //Todo: update the folder for the 'exhibit' above.
         //
