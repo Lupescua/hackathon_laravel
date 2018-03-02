@@ -31,8 +31,9 @@ class OptionsController extends Controller
     {
 
         //return 'list of all questions'
-        $option = \App\Option::where("id" , $id)->first();  //
-        return view('final', ['option' => $option]);
+        $question = \App\Question::where("id" , $id)->first();
+
+        return view('final', ['question' => $question]);
         //Todo: update the folder for the 'exhibit' above.
         //
     }
